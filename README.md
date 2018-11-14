@@ -63,7 +63,11 @@ This project is [Jest](https://mochajs.org) and [Enzyme](https://airbnb.io/enzym
 ##### Public End Points
 | Description                                                        | Endpoint                           |
 | ------------------------------------------------------------------ | ---------------------------------- |
-| [Get Info of Nearby Homes of a Home](#get-homeshomeidneaerbyhomes) | GET /api/homes/:homeId/nearbyHomes |
+| [Get Info of Nearby Homes of a Home](#get-nearbyHomeshomeshome) | GET /nearbyHomes/homes/:home |
+| [Update Info of a Home](#put-nearbyHomeshomeshome) | PUT /nearbyHomes/home/:home |
+| [Create Info of Nearby Homes of a Home](#post-homes) | POST /homes |
+| [Delete Info of Nearby Homes of a Home](#delete-nearbyHomeshomeshome) | DELETE /nearbyHomes/homes/:home |
+
 
 ## GET /api/homes/:homeId/nearbyHomes
 

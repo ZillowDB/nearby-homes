@@ -1,5 +1,7 @@
 ## MAC files ##
 .DS_Store
+.env
+*.pem
 
 ## NPM ##
 npm
