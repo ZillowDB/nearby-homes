@@ -4,9 +4,37 @@ const Home = require('../../../database/models/Home');
 const router = express.Router();
 const createRandomId = () => Math.floor(Math.random() * 100) + 1;
 
-router.post('/homes', (req, res) => res.status(405));
-router.put('/nearbyHomes/homes/:home', (req, res) => res.status(405));
-router.delete('/nearbyHomes/homes/:home', (req, res) => res.status(405));
+router.post('/homes', (req, res) => {
+  const homeInfo = req.body;
+  Home.create(homeInfo)
+    .then(() => {
+      res.status(200);
+    });
+});
+
+router.put('/nearbyHomes/homes/:home', (req, res) => {
+  const currentHouse = req.body;
+  Home.update(currentHouse, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then(() => {
+      res.status(200);
+    });
+});
+
+router.delete('/nearbyHomes/homes/:home', (req, res) => {
+  const currentHouse = req.params.home;
+  Home.destroy({
+    where: {
+      id: currentHouse,
+    },
+  })
+    .then(() => {
+      res.status(200);
+    });
+});
 
 router.get('/nearbyHomes/homes/:home', (req, res) => {
   const randomId = createRandomId();

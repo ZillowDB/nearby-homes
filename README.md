@@ -61,21 +61,13 @@ This project is [Jest](https://mochajs.org) and [Enzyme](https://airbnb.io/enzym
 ## API Documentation
 
 ##### Public End Points
-| Description                                                        | Endpoint                           |
-| ------------------------------------------------------------------ | ---------------------------------- |
-| [Get Info of Nearby Homes of a Home](#get-nearbyHomeshomeshome) | GET /nearbyHomes/homes/:home |
-| [Update Info of a Home](#put-nearbyHomeshomeshome) | PUT /nearbyHomes/home/:home |
-| [Create Info of Nearby Homes of a Home](#post-homes) | POST /homes |
-| [Delete Info of Nearby Homes of a Home](#delete-nearbyHomeshomeshome) | DELETE /nearbyHomes/homes/:home |
 
-
-## GET /api/homes/:homeId/nearbyHomes
-
-Requests home's nearby homes information upon accessing from Zillow's designated endpoint
-
-### Example Request
-
-### Example Response
+| Endpoint      | Method        | Description  |
+| ------------- |:-------------:| -----:|
+| `/nearbyHomes/homes/:home` | GET| Get info of nearby homes of a home |
+| `/nearbyHomes/home/:home` | PUT | Update info of a home |
+| `/nearbyHomes/homes/:home` | DELETE | Delete info of nearby homes of a home |
+| `/homes` | POST | Create info of nearby homes of a home |
 
 
 
