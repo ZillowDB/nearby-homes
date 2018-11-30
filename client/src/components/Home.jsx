@@ -3,15 +3,17 @@ import HomeDetail from './HomeDetail';
 
 const addCommas = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const Home = ({ home, handleContentClick, isOddLen, isLastCell }) => {
-  const homeValue = addCommas(home.homeValue);
+const Home = ({ 
+  home, handleContentClick, isOddLen, isLastCell,
+}) => {
+  const homeValue = addCommas(home.homevalue);
   const sqft = addCommas(home.sqft);
 
   return (
     <div
       className="home-main-container"
       style={{
-        backgroundImage: `url(${home.homeImage})`,
+        backgroundImage: `url(${home.homeimage})`,
       }}
     >
       <div className="home-inner-container">

@@ -1,0 +1,11 @@
+config:
+ processor: './stressTest.js'
+ target: 'http://localhost:3003'
+ phases:
+   - duration: 10
+     arrivalRate: 1000
+scenarios:
+ - flow:
+   - function: 'generateId'
+   - get:
+       url: '/homes/{{ id }}/nearbyHomes'

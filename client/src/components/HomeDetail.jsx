@@ -30,12 +30,12 @@ const HomeDetail = ({
           <span className="home-photo-card-spec">
             <span>
               <span className="property-beds">
-                {home.numberOfBedroom}
+                {home.numberofbedroom}
                 {' '}
                 bds
               </span>
               <span className="property-baths">
-                {home.numberOfBathroom}
+                {home.numberofbathroom}
                 {' '}
                 ba
               </span>
@@ -49,13 +49,13 @@ const HomeDetail = ({
         </p>
         <p className="home-photo-card-spec-address">
           <span className="home-photo-card-address">
-            {home.streetName}
+            {home.streetname}
             ,
-            {home.cityName}
+            {home.cityname}
             ,
-            {home.stateName}
+            {home.statename}
             ,
-            {home.zipCode}
+            {home.zipcode}
           </span>
         </p>
       </div>

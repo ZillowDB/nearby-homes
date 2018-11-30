@@ -17,12 +17,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/nearbyHomes', {}).then((homes) => {
-      this.setState({
-        list: homes.data,
-        zipCode: homes.data[0].zipCode,
-      });
-    });
+    const path = window.location.pathname.split('/');
+    const id = path[path.length - 2];
+    axios.get(`/homes/${id}/nearbyHomes`, {})
+      .then((homes) => {
+        console.log(homes.data);
+        this.setState({
+          list: homes.data.rows,
+          zipCode: homes.data.rows[0].zipcode,
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   toggleCollapsibleTitle = () => {
@@ -33,12 +38,10 @@ class App extends Component {
   };
 
   handleContentCloseClick = () => {
-    const { showPopup } = this.state;
     this.setState({ showPopup: false });
   };
 
   handleContentClick = param => (e) => {
-    const { clickedContent, showPopup } = this.state;
     this.setState({
       clickedContent: param,
       showPopup: true,

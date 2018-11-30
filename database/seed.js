@@ -19,11 +19,18 @@ const createRandomNum = function (min, max) {
   return Math.ceil(Math.random() * (max - min)) + (min - 1);
 };
 
+// const selectRandomPhoto = () => `https://s3-us-west-1.amazonaws.com/sdc-houses/${createRandomNum(1, 5)}.jpg`;
+const randomNumGenerator = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const randomImage = () => `https://s3.us-east-2.amazonaws.com/sdcimagebucket/${randomNumGenerator(1, 250).toString()}.jpg`
+
 const createFakeHomes = function createFakeHomes() {
   fs.writeFileSync('./data.csv', columnNames.join(','));
+  let count = 1;
   for (let j = 0; j < 1000; j += 1) {
     let fakeHomes = '';
     for (let i = 1; i <= 10000; i += 1) {
+      const id = count;
       const address = `${i} ${streetArray[j]}`;
       const dateOfPosting = `${createRandomNum(2015, 2018)}-${createRandomNum(1, 12)}-${createRandomNum(1, 31)}`;
       const status = statusName[createRandomNum(0, 5)];
@@ -35,10 +42,11 @@ const createFakeHomes = function createFakeHomes() {
       const cityName = 'Rockville';
       const stateName = 'MD';
       const zipCode = rockvilleZipCodes[createRandomNum(0, 9)];
-      const homeImage = 'IMAGE_PNG';
-      const home = `${address}, ${dateOfPosting}, ${status}, ${numberOfLikes}, ${numberOfBathroom}, ${numberOfBedroom}, ${homeValue}, ${sqft}, ${cityName}, ${stateName}, ${zipCode}, ${homeImage}`;
+      const homeImage = randomImage();
+      const home = `${id}, ${address}, ${dateOfPosting}, ${status}, ${numberOfLikes}, ${numberOfBathroom}, ${numberOfBedroom}, ${homeValue}, ${sqft}, ${cityName}, ${stateName}, ${zipCode}, ${homeImage}`;
 
       fakeHomes += `${home}\n`;
+      count += 1;
     }
     fs.appendFileSync('./data.csv', fakeHomes);
   }

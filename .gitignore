@@ -2,7 +2,7 @@
 .DS_Store
 .env
 *.pem
-
+sdc_nearbyhomes.pem
 ## NPM ##
 npm
 npm-debug.log
